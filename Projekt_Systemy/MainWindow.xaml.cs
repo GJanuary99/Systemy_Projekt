@@ -25,21 +25,25 @@ namespace Projekt_Systemy
         public MainWindow()
         {
             InitializeComponent();
-            StartCar();
+           
         }
 
         private void StartCar()
         {
-            string enviroment = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-            string path = enviroment + "\\Projekt_systemy\\src";
-            Image car = new Image();
-            car.Source = new BitmapImage(new Uri("/src/car_blue.png" ,UriKind.Relative));
-            car.Stretch = Stretch.Fill;
-            car.Height =50;
-            car.Width =50;
-            canvas.Children.Add(car);
-            Canvas.SetTop(car, 110);
-            Canvas.SetLeft(car, 120);
+            int x = 50;
+            while (true)
+            {
+                this.Dispatcher.Invoke((Action)(() =>
+                {
+                    MoveCar(x);
+                }));
+                System.Threading.Thread.Sleep(100);
+                x++;
+                if (x > 500)
+                {
+                    break;
+                }
+            }
         }
 
         void StartTrain()
@@ -50,7 +54,7 @@ namespace Projekt_Systemy
                 {
                     Canvas.SetTop(pociag, x);
                 }));
-                System.Threading.Thread.Sleep(1);
+                System.Threading.Thread.Sleep(2);
                 x++;
                 if (x > 600)
                 {
@@ -63,6 +67,13 @@ namespace Projekt_Systemy
         {
             Thread iThread = new Thread(new ThreadStart(StartTrain));
             iThread.Start();
+            Thread uThread = new Thread(new ThreadStart(StartCar));
+            uThread.Start();
+        }
+
+        private void MoveCar(int x)
+        {
+            Canvas.SetLeft(car1, x);
         }
     }
 }
