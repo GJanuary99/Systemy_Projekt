@@ -1,0 +1,15 @@
+C:\Users\Browarus\Source\Repos\Systemy_Projekt\Projekt_Systemy\bin\Debug\Projekt_Systemy.exe.config
+C:\Users\Browarus\Source\Repos\Systemy_Projekt\Projekt_Systemy\bin\Debug\Projekt_Systemy.exe
+C:\Users\Browarus\Source\Repos\Systemy_Projekt\Projekt_Systemy\bin\Debug\Projekt_Systemy.pdb
+C:\Users\Browarus\Source\Repos\Systemy_Projekt\Projekt_Systemy\obj\Debug\Projekt_Systemy.csprojAssemblyReference.cache
+C:\Users\Browarus\Source\Repos\Systemy_Projekt\Projekt_Systemy\obj\Debug\MainWindow.g.cs
+C:\Users\Browarus\Source\Repos\Systemy_Projekt\Projekt_Systemy\obj\Debug\App.g.cs
+C:\Users\Browarus\Source\Repos\Systemy_Projekt\Projekt_Systemy\obj\Debug\Projekt_Systemy_MarkupCompile.cache
+C:\Users\Browarus\Source\Repos\Systemy_Projekt\Projekt_Systemy\obj\Debug\Projekt_Systemy_MarkupCompile.lref
+C:\Users\Browarus\Source\Repos\Systemy_Projekt\Projekt_Systemy\obj\Debug\MainWindow.baml
+C:\Users\Browarus\Source\Repos\Systemy_Projekt\Projekt_Systemy\obj\Debug\Projekt_Systemy.g.resources
+C:\Users\Browarus\Source\Repos\Systemy_Projekt\Projekt_Systemy\obj\Debug\Projekt_Systemy.Properties.Resources.resources
+C:\Users\Browarus\Source\Repos\Systemy_Projekt\Projekt_Systemy\obj\Debug\Projekt_Systemy.csproj.GenerateResource.cache
+C:\Users\Browarus\Source\Repos\Systemy_Projekt\Projekt_Systemy\obj\Debug\Projekt_Systemy.csproj.CoreCompileInputs.cache
+C:\Users\Browarus\Source\Repos\Systemy_Projekt\Projekt_Systemy\obj\Debug\Projekt_Systemy.exe
+C:\Users\Browarus\Source\Repos\Systemy_Projekt\Projekt_Systemy\obj\Debug\Projekt_Systemy.pdb
