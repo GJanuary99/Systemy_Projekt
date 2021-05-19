@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -39,6 +40,29 @@ namespace Projekt_Systemy
             canvas.Children.Add(car);
             Canvas.SetTop(car, 110);
             Canvas.SetLeft(car, 120);
+        }
+
+        void StartTrain()
+        {
+            int x = -370;
+            while(true){
+                this.Dispatcher.Invoke((Action)(() =>
+                {
+                    Canvas.SetTop(pociag, x);
+                }));
+                System.Threading.Thread.Sleep(1);
+                x++;
+                if (x > 600)
+                {
+                    break;
+                }
+            }
+        }
+
+        private void buttonStart(object sender, RoutedEventArgs e)
+        {
+            Thread iThread = new Thread(new ThreadStart(StartTrain));
+            iThread.Start();
         }
     }
 }
