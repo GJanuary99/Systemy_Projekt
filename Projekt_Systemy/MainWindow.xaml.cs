@@ -27,6 +27,10 @@ namespace Projekt_Systemy
             InitializeComponent();
            
         }
+        Random rand = new Random();
+        const int minTrainTime = 5000;
+        const int maxTrainTime = 20000;
+        bool lightSignal = false;
 
         private void StartCar()
         {
@@ -48,27 +52,69 @@ namespace Projekt_Systemy
 
         void StartTrain()
         {
-            int x = -370;
-            while(true){
-                this.Dispatcher.Invoke((Action)(() =>
+            while (true)
+            {
+                Thread.Sleep(rand.Next(minTrainTime, maxTrainTime));
+                lightSignal = true;
+                int x = -370;
+                while (true)
                 {
-                    Canvas.SetTop(pociag, x);
-                }));
-                System.Threading.Thread.Sleep(2);
-                x++;
-                if (x > 600)
-                {
-                    break;
+                    
+                    this.Dispatcher.Invoke((Action)(() =>
+                    {
+                        Canvas.SetTop(pociag, x);
+                    }));
+                    System.Threading.Thread.Sleep(2);
+                    x++;
+                    if (x > 600)
+                    {
+                        break;
+                    }
                 }
+                lightSignal = false;
+            }
+        }
+
+        void StartLights()
+        {
+            bool rightLight = true;
+            while (true)
+            {
+                Thread.Sleep(300);
+                this.Dispatcher.Invoke((Action)(() =>
+                    {
+                        if (lightSignal)
+                        {
+                            if (rightLight)
+                            {
+                                light.Source = new BitmapImage(new Uri("/src/car_yellow.png", UriKind.Relative));
+                                rightLight = !rightLight;
+                            }
+                            else
+                            {
+                                light.Source = new BitmapImage(new Uri("/src/car_red.png", UriKind.Relative));
+                                rightLight = !rightLight;
+                            }
+                        }
+                        else
+                        {
+                            light.Source = new BitmapImage(new Uri("/src/car_blue.png", UriKind.Relative));
+                        }
+                    }));
             }
         }
 
         private void buttonStart(object sender, RoutedEventArgs e)
         {
-            Thread iThread = new Thread(new ThreadStart(StartTrain));
-            iThread.Start();
-            Thread uThread = new Thread(new ThreadStart(StartCar));
-            uThread.Start();
+            Thread tThread = new Thread(new ThreadStart(StartTrain));
+            tThread.IsBackground = true;
+            tThread.Start();
+            Thread cThread = new Thread(new ThreadStart(StartCar));
+            cThread.IsBackground = true;
+            cThread.Start();
+            Thread lThread = new Thread(new ThreadStart(StartLights));
+            lThread.IsBackground = true;
+            lThread.Start();
         }
 
         private void MoveCar(int x)

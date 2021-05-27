@@ -14,6 +14,7 @@
             <Button Content="Start" Canvas.Left="10" Canvas.Top="10" Width="75" Click="buttonStart"/>
             <Image x:Name="pociag" Height="150" Canvas.Left="660" Canvas.Top="-150" Width="50" Source="/src/car_red.png" Stretch="Fill"/>
             <Image x:Name="car1" Height="50" Canvas.Left="50" Canvas.Top="110" Width="50" Source="/src/car_blue.png" Stretch="Fill"/>
+            <Image x:Name="light" Height="50" Canvas.Left="720" Canvas.Top="390" Width="50" Source="/src/car_blue.png" Stretch="Fill"/>
         </Canvas>
     </Grid>
 </Window>
