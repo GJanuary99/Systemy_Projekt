@@ -101,5 +101,13 @@
     <Resource Include="src\car_red.png" />
     <Resource Include="src\car_yellow.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\brak.png" />
+    <Resource Include="src\lewy.png" />
+    <Resource Include="src\prawy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\pociag.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

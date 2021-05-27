@@ -87,18 +87,18 @@ namespace Projekt_Systemy
                         {
                             if (rightLight)
                             {
-                                light.Source = new BitmapImage(new Uri("/src/car_yellow.png", UriKind.Relative));
+                                light.Source = new BitmapImage(new Uri("/src/lewy.png", UriKind.Relative));
                                 rightLight = !rightLight;
                             }
                             else
                             {
-                                light.Source = new BitmapImage(new Uri("/src/car_red.png", UriKind.Relative));
+                                light.Source = new BitmapImage(new Uri("/src/prawy.png", UriKind.Relative));
                                 rightLight = !rightLight;
                             }
                         }
                         else
                         {
-                            light.Source = new BitmapImage(new Uri("/src/car_blue.png", UriKind.Relative));
+                            light.Source = new BitmapImage(new Uri("/src/brak.png", UriKind.Relative));
                         }
                     }));
             }
