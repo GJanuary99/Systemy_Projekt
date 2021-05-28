@@ -29,24 +29,104 @@ namespace Projekt_Systemy
         }
         Random rand = new Random();
         const int minTrainTime = 5000;
-        const int maxTrainTime = 20000;
+        const int maxTrainTime = 10000;
         bool lightSignal = false;
+
+        private Point betweenPoint(Point one, Point two, int procent, int maxProcent)
+        {
+            return new Point(one.X+(((two.X-one.X)*procent)/ maxProcent), one.Y + (((two.Y - one.Y) * procent)/ maxProcent));
+        }
 
         private void StartCar()
         {
-            int x = 50;
-            while (true)
+            Point xy = new Point(-50, 110);
+            Point bezieraHorizontal = new Point(510, 110);
+            Point bezieraVertical = new Point(610, 110);
+            int procentTurn = 0;
+
+
+            while (xy.X > 510)
             {
                 this.Dispatcher.Invoke((Action)(() =>
                 {
-                    MoveCar(x);
+                    MoveCar(xy, car1);
                 }));
-                System.Threading.Thread.Sleep(100);
-                x++;
-                if (x > 500)
+                System.Threading.Thread.Sleep(5);
+                xy.X++;
+            }
+            while (bezieraVertical.Y > 200)
+            {
+                xy = betweenPoint(bezieraHorizontal, bezieraVertical, procentTurn, 90);
+                this.Dispatcher.Invoke((Action)(() =>
                 {
-                    break;
+                    MoveCar(xy, car1);
+                }));
+                bezieraHorizontal.X++;
+                bezieraVertical.Y++;
+                procentTurn++;
+                System.Threading.Thread.Sleep(10);
+            }
+            bezieraHorizontal.Y = 290;
+            while (bezieraVertical.Y > 290)
+            {
+                xy = betweenPoint(bezieraHorizontal, bezieraVertical, procentTurn, 90);
+                this.Dispatcher.Invoke((Action)(() =>
+                {
+                    MoveCar(xy, car1);
+                }));
+                bezieraHorizontal.X--;
+                bezieraVertical.Y++;
+                procentTurn--;
+                System.Threading.Thread.Sleep(10);
+            }
+            while (xy.X < 170)
+            {
+                this.Dispatcher.Invoke((Action)(() =>
+                {
+                    MoveCar(xy, car1);
+                }));
+                System.Threading.Thread.Sleep(5);
+                xy.X--;
+            }
+            bezieraHorizontal.X = 170;
+            bezieraVertical.X = 100;
+            while (bezieraVertical.Y > 350)
+            {
+                xy = betweenPoint(bezieraHorizontal, bezieraVertical, procentTurn, 60);
+                this.Dispatcher.Invoke((Action)(() =>
+                {
+                    MoveCar(xy, car1);
+                }));
+                bezieraHorizontal.X--;
+                bezieraVertical.Y++;
+                procentTurn++;
+                System.Threading.Thread.Sleep(10);
+            }
+            bezieraHorizontal.Y = 410;
+            while (bezieraVertical.Y > 410)
+            {
+                xy = betweenPoint(bezieraHorizontal, bezieraVertical, procentTurn, 60);
+                this.Dispatcher.Invoke((Action)(() =>
+                {
+                    MoveCar(xy, car1);
+                }));
+                bezieraHorizontal.X++;
+                bezieraVertical.Y++;
+                procentTurn--;
+                System.Threading.Thread.Sleep(10);
+            }
+            while (xy.X > 800)
+            {
+                while (lightSignal && xy.X>590 && xy.X<610)
+                {
+                    System.Threading.Thread.Sleep(50);
                 }
+                this.Dispatcher.Invoke((Action)(() =>
+                {
+                    MoveCar(xy, car1);
+                }));
+                System.Threading.Thread.Sleep(5);
+                xy.X++;
             }
         }
 
@@ -64,7 +144,7 @@ namespace Projekt_Systemy
                     {
                         Canvas.SetTop(pociag, x);
                     }));
-                    System.Threading.Thread.Sleep(2);
+                    System.Threading.Thread.Sleep(5);
                     x++;
                     if (x > 600)
                     {
@@ -117,9 +197,10 @@ namespace Projekt_Systemy
             lThread.Start();
         }
 
-        private void MoveCar(int x)
+        private void MoveCar(Point xy, Image car)
         {
-            Canvas.SetLeft(car1, x);
+            Canvas.SetLeft(car, xy.X);
+            Canvas.SetTop(car, xy.Y);
         }
     }
 }
