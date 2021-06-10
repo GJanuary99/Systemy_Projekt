@@ -41,7 +41,13 @@ namespace Projekt_Systemy
         {
             while (true)
             {
-                Thread.Sleep(rand.Next(minTrainTime / 4, maxTrainTime / 4));
+                car.getNewValues(rand);
+                Dispatcher.Invoke((Action)(() =>
+                {
+                    Canvas.SetLeft(image, car.coordinates.X);
+                    Canvas.SetTop(image, car.coordinates.Y);
+                }));
+                Thread.Sleep(rand.Next(minTrainTime / 4, maxTrainTime / 2));
                 while (car.coordinates.X < 520)
                 {
                     MoveCar(car.coordinates, image, car.skret);
@@ -96,12 +102,6 @@ namespace Projekt_Systemy
                     System.Threading.Thread.Sleep(car.speed);
                     car.coordinates.X++;
                 }
-                car.getNewValues(rand);
-                Dispatcher.Invoke((Action)(() =>
-                {
-                    Canvas.SetLeft(image, car.coordinates.X);
-                    Canvas.SetTop(image, car.coordinates.Y);
-                }));
             }
         }
 

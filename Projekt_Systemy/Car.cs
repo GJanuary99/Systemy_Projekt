@@ -12,9 +12,9 @@ namespace Projekt_Systemy
     public class Car
     {
         const int maxCarSpeed = 2;
-        const int minCarSpeed = 10;
+        const int minCarSpeed = 7;
         public int speed;
-        public Point coordinates = new Point(-50, 110);
+        public Point coordinates;
         public Point bezieraHorizontal;
         public Point bezieraVertical;
         public int skret = 1;
