@@ -13,6 +13,7 @@
         <Button Content="Start" Width="45" Height="26" Click="buttonStart" Margin="10,0,737,533" VerticalAlignment="Bottom"/>
         <Canvas x:Name="canvas">
             <Image x:Name="pociag" Height="300" Canvas.Left="660" Canvas.Top="-300" Width="50" Source="/src/pociag.png" Stretch="Fill"/>
+            <Image x:Name="rogatka" Height="50" Canvas.Left="640" Canvas.Top="390" Width="20" Source="/src/rogatka-close.png" Stretch="UniformToFill"/>
             <Image x:Name="light" Height="90" Canvas.Left="720" Canvas.Top="340" Width="60" Source="/src/brak.png" Stretch="Fill"/>
 
             <Image x:Name="carImg1" Height="50" Canvas.Left="-50" Canvas.Top="110" Width="50" Source="/src/car_blue.png" Stretch="Fill"/>

@@ -115,5 +115,8 @@
     <Resource Include="src\car_gray.png" />
     <Resource Include="src\car_green.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\rogatka-close.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

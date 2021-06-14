@@ -140,6 +140,7 @@ namespace Projekt_Systemy
                     {
                         if (lightSignal)
                         {
+                            rogatka.Height = 150;
                             if (rightLight)
                             {
                                 light.Source = new BitmapImage(new Uri("/src/lewy.png", UriKind.Relative));
@@ -153,6 +154,7 @@ namespace Projekt_Systemy
                         }
                         else
                         {
+                            rogatka.Height = 50;
                             light.Source = new BitmapImage(new Uri("/src/brak.png", UriKind.Relative));
                         }
                     }));
