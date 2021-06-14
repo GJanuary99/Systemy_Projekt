@@ -16,12 +16,12 @@
             <Image x:Name="rogatka" Height="50" Canvas.Left="640" Canvas.Top="390" Width="20" Source="/src/rogatka-close.png" Stretch="UniformToFill"/>
             <Image x:Name="light" Height="90" Canvas.Left="720" Canvas.Top="340" Width="60" Source="/src/brak.png" Stretch="Fill"/>
 
-            <Image x:Name="carImg1" Height="50" Canvas.Left="-50" Canvas.Top="110" Width="50" Source="/src/car_blue.png" Stretch="Fill"/>
-            <Image x:Name="carImg2" Height="50" Canvas.Left="-50" Canvas.Top="110" Width="50" Source="/src/car_red.png" Stretch="Fill"/>
-            <Image x:Name="carImg3" Height="50" Canvas.Left="-50" Canvas.Top="110" Width="50" Source="/src/car_black.png" Stretch="Fill"/>
-            <Image x:Name="carImg4" Height="50" Canvas.Left="-50" Canvas.Top="110" Width="50" Source="/src/car_gray.png" Stretch="Fill"/>
-            <Image x:Name="carImg5" Height="50" Canvas.Left="-50" Canvas.Top="110" Width="50" Source="/src/car_green.png" Stretch="Fill"/>
-            <Image x:Name="carImg6" Height="50" Canvas.Left="-50" Canvas.Top="110" Width="50" Source="/src/car_yellow.png" Stretch="Fill"/>
+            <Image x:Name="carImg1" Height="50" Canvas.Left="-50" Canvas.Top="110" Width="50" Source="/src/car_blue_r.png" Stretch="Fill"/>
+            <Image x:Name="carImg2" Height="50" Canvas.Left="-50" Canvas.Top="110" Width="50" Source="/src/car_red_r.png" Stretch="Fill"/>
+            <Image x:Name="carImg3" Height="50" Canvas.Left="-50" Canvas.Top="110" Width="50" Source="/src/car_black_r.png" Stretch="Fill"/>
+            <Image x:Name="carImg4" Height="50" Canvas.Left="-50" Canvas.Top="110" Width="50" Source="/src/car_gray_r.png" Stretch="Fill"/>
+            <Image x:Name="carImg5" Height="50" Canvas.Left="-50" Canvas.Top="110" Width="50" Source="/src/car_green_r.png" Stretch="Fill"/>
+            <Image x:Name="carImg6" Height="50" Canvas.Left="-50" Canvas.Top="110" Width="50" Source="/src/car_yellow_r.png" Stretch="Fill"/>
         </Canvas>
     </Grid>
 </Window>

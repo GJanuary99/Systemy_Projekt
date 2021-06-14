@@ -65,6 +65,10 @@ namespace Projekt_Systemy
                     car.procentTurn += car.skret;
                     if (car.bezieraVertical.Y == 200)
                     {
+                        Dispatcher.Invoke((Action)(() =>
+                        {
+                            image.Source = car.bitL;
+                        }));
                         car.skret = car.skret * -1;
                         car.bezieraHorizontal.Y = 290;
                     }
@@ -87,6 +91,10 @@ namespace Projekt_Systemy
                     car.procentTurn += car.skret * -1;
                     if (car.bezieraVertical.Y == 350)
                     {
+                        Dispatcher.Invoke((Action)(() =>
+                        {
+                            image.Source = car.bitR;
+                        }));
                         car.skret = car.skret * -1;
                         car.bezieraHorizontal.Y = 410;
                     }
@@ -171,32 +179,32 @@ namespace Projekt_Systemy
             lThread.IsBackground = true;
             lThread.Start();
 
-            Car car1 = new Car();
+            Car car1 = new Car("/src/car_blue");
             Thread c1Thread = new Thread(()=> StartCar(car1, carImg1));
             c1Thread.IsBackground = true;
             c1Thread.Start();
 
-            Car car2 = new Car();
+            Car car2 = new Car("/src/car_red");
             Thread c2Thread = new Thread(() => StartCar(car2, carImg2));
             c2Thread.IsBackground = true;
             c2Thread.Start();
 
-            Car car3 = new Car();
+            Car car3 = new Car("/src/car_black");
             Thread c3Thread = new Thread(() => StartCar(car3, carImg3));
             c3Thread.IsBackground = true;
             c3Thread.Start();
 
-            Car car4 = new Car();
+            Car car4 = new Car("/src/car_gray");
             Thread c4Thread = new Thread(() => StartCar(car4, carImg4));
             c4Thread.IsBackground = true;
             c4Thread.Start();
 
-            Car car5 = new Car();
+            Car car5 = new Car("/src/car_green");
             Thread c5Thread = new Thread(() => StartCar(car5, carImg5));
             c5Thread.IsBackground = true;
             c5Thread.Start();
 
-            Car car6 = new Car();
+            Car car6 = new Car("/src/car_yellow");
             Thread c6Thread = new Thread(() => StartCar(car6, carImg6));
             c6Thread.IsBackground = true;
             c6Thread.Start();

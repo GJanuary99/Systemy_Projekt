@@ -98,9 +98,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="src\background.png" />
-    <Resource Include="src\car_blue.png" />
-    <Resource Include="src\car_red.png" />
-    <Resource Include="src\car_yellow.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="src\brak.png" />
@@ -111,12 +108,21 @@
     <Resource Include="src\pociag.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="src\car_black.png" />
-    <Resource Include="src\car_gray.png" />
-    <Resource Include="src\car_green.png" />
+    <Resource Include="src\rogatka-close.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="src\rogatka-close.png" />
+    <Resource Include="src\car_black_l.png" />
+    <Resource Include="src\car_black_r.png" />
+    <Resource Include="src\car_blue_l.png" />
+    <Resource Include="src\car_blue_r.png" />
+    <Resource Include="src\car_gray_l.png" />
+    <Resource Include="src\car_gray_r.png" />
+    <Resource Include="src\car_green_l.png" />
+    <Resource Include="src\car_green_r.png" />
+    <Resource Include="src\car_red_l.png" />
+    <Resource Include="src\car_red_r.png" />
+    <Resource Include="src\car_yellow_l.png" />
+    <Resource Include="src\car_yellow_r.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
