@@ -35,6 +35,7 @@ namespace Projekt_Systemy
         private Point betweenPoint(Point one, Point two, int procent, int maxProcent)
         {
             return new Point(one.X+(((two.X-one.X)*procent)/ maxProcent), one.Y + (((two.Y - one.Y) * procent)/ maxProcent));
+            // zwraca punkt miedzy dwoma punktami na danej odleglosci od punktu pierwszego
         }
 
         private void StartCar(Car car, Image image)
@@ -46,13 +47,15 @@ namespace Projekt_Systemy
                 {
                     Canvas.SetLeft(image, car.coordinates.X);
                     Canvas.SetTop(image, car.coordinates.Y);
+                    // ustawienie pojazdu na opdowiednich koordynatach, resetowanie go na poczatek
                 }));
-                Thread.Sleep(rand.Next(minTrainTime / 4, maxTrainTime / 2));
+                Thread.Sleep(rand.Next(minTrainTime / 4, maxTrainTime / 2)); // czas oczekiwania zanim pojedzie auto
                 while (car.coordinates.X < 520)
                 {
                     MoveCar(car.coordinates, image, car.skret);
                     System.Threading.Thread.Sleep(car.speed);
                     car.coordinates.X++;
+                    // pierwszy odcinek
                 }
                 car.bezieraHorizontal = new Point(car.coordinates.X, car.coordinates.Y);
                 car.bezieraVertical = new Point(car.coordinates.X + 90, car.coordinates.Y);
@@ -67,18 +70,20 @@ namespace Projekt_Systemy
                     {
                         Dispatcher.Invoke((Action)(() =>
                         {
-                            image.Source = car.bitL;
+                            image.Source = car.bitL;//obrot samochodu
                         }));
                         car.skret = car.skret * -1;
                         car.bezieraHorizontal.Y = 290;
                     }
                     System.Threading.Thread.Sleep(car.speed * 2);
+                    // pierwszy zakret
                 }
                 while (car.coordinates.X > 170)
                 {
                     MoveCar(car.coordinates, image, car.skret);
                     System.Threading.Thread.Sleep(car.speed);
                     car.coordinates.X--;
+                    // drugi odcinek
                 }
                 car.bezieraHorizontal.X = 170;
                 car.bezieraVertical.X = 100;
@@ -93,22 +98,24 @@ namespace Projekt_Systemy
                     {
                         Dispatcher.Invoke((Action)(() =>
                         {
-                            image.Source = car.bitR;
+                            image.Source = car.bitR;//obrot samochodu
                         }));
                         car.skret = car.skret * -1;
                         car.bezieraHorizontal.Y = 410;
                     }
                     System.Threading.Thread.Sleep(car.speed * 2);
+                    // drugi zakret
                 }
                 while (car.coordinates.X < 800)
                 {
                     while (lightSignal && car.coordinates.X > 590 && car.coordinates.X < 610)
                     {
-                        System.Threading.Thread.Sleep(50);
+                        System.Threading.Thread.Sleep(50);//zatrzymanie pojazdu gdy jedzie pociag
                     }
                     MoveCar(car.coordinates, image, car.skret);
                     System.Threading.Thread.Sleep(car.speed);
                     car.coordinates.X++;
+                    //trzeci odcinek/ostatni przed torami
                 }
             }
         }
@@ -118,7 +125,7 @@ namespace Projekt_Systemy
             while (true)
             {
                 Thread.Sleep(rand.Next(minTrainTime, maxTrainTime));
-                lightSignal = true;
+                lightSignal = true;//jezeli pociag jedzie, swiatla dzialaja
                 int x = -370;
                 while (true)
                 {
@@ -134,7 +141,7 @@ namespace Projekt_Systemy
                         break;
                     }
                 }
-                lightSignal = false;
+                lightSignal = false;//wylaczenie swiatel
             }
         }
 
@@ -146,7 +153,7 @@ namespace Projekt_Systemy
                 Thread.Sleep(300);
                 this.Dispatcher.Invoke((Action)(() =>
                     {
-                        if (lightSignal)
+                        if (lightSignal)// animacja mrugania swiatel
                         {
                             rogatka.Height = 150;
                             if (rightLight)
@@ -217,18 +224,18 @@ namespace Projekt_Systemy
             {
                 Dispatcher.Invoke((Action)(() =>
                 {
-                    foreach (FrameworkElement sibling in canvas.Children)
+                    foreach (FrameworkElement sibling in canvas.Children)// porownujemy odleglosci miedzy naszym pojazdem a wszystkimi z listy canvas 
                     {
                         if (sibling.Name != car.Name)
                         {
                             double distance = Point.Subtract(new Point(xy.X + 25, xy.Y + 25), new Point(Convert.ToInt32(sibling.GetValue(Canvas.LeftProperty))+25, Convert.ToInt32(sibling.GetValue(Canvas.TopProperty))+25)).Length;
-
+                            // dystans pomiedzy autami
                             if (Convert.ToInt32(distance)<75 &&
                             Convert.ToInt32(sibling.GetValue(Canvas.TopProperty))>=xy.Y &&
                             ((Convert.ToInt32(sibling.GetValue(Canvas.LeftProperty))>(xy.X)&&collisionright==1) || (Convert.ToInt32(sibling.GetValue(Canvas.LeftProperty)) < (xy.X + 50) && collisionright == -1))
-                            )
+                            )//sprawdzenie czy auto ma wystarczajacy dystans, jezeli nie to wchodzimy do if'a
                             {
-                                collision = true;
+                                collision = true;// wykrycie kolizji i zatrzymanie pojazdu
                                 break;
                             }
                         }
@@ -241,6 +248,7 @@ namespace Projekt_Systemy
             {
                 Canvas.SetLeft(car, xy.X);
                 Canvas.SetTop(car, xy.Y);
+                // poruszanie sie pojazdu
             }));
         }
     }

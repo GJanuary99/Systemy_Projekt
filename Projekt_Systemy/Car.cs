@@ -18,7 +18,7 @@ namespace Projekt_Systemy
         public Point coordinates;
         public Point bezieraHorizontal;
         public Point bezieraVertical;
-        public int skret = 1;
+        public int skret = 1;// w ktorym kierunku ma byc obrocony pojazd i z ktorego kierunku jest kolizja
         public int procentTurn = 0;
         public BitmapImage bitR = new BitmapImage();
         public BitmapImage bitL = new BitmapImage();
@@ -44,6 +44,7 @@ namespace Projekt_Systemy
             skret = 1;
             procentTurn = 0;
             speed = rand.Next(maxCarSpeed, minCarSpeed);
+            // ustawienie nowych parametrów dla pojazdu
         }
     }
 }
